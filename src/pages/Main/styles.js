@@ -7,7 +7,7 @@ export const Form = styled.form`
 
   input {
     flex: 1;
-    border: 1px solid #eee;
+    border: 1px solid ${({ error }) => (error ? '#ff0000' : '#eee')};
     padding: 10px 15px;
     border-radius: 4px;
     font-size: 16px;
@@ -23,9 +23,8 @@ const rotate = keyframes`
   }
 `;
 
-export const SubmitButton = styled.button.attrs(({ loading }) => ({
+export const SubmitButton = styled.button.attrs(() => ({
   type: 'submit',
-  disabled: loading,
 }))`
   background: #7159c1;
   border: 0;
